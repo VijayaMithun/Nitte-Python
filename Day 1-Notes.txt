@@ -1,0 +1,293 @@
+Program
+Set of statement / Instruction
+
+Project 
+Set of programs
+
+Software:
+1. System
+2. Application
+   1. Packages- Notepad , Calc, Calendar , Paint ...
+      (Readymade options)
+   2. Languages
+      C, C++ , Python , Java , C# , Js , HTML
+
+List of markup lang:
+https://www.peterindia.net/MarkupLanguages.html 
+
+Project Vs Software
+Licensed projects are called software.
+----------------------------------------
+Keywords :
+C	- 32 
+Java 	- initially - 50 , from version 8 - 53
+Python  - 36
+----------------------------------------
+Comment
+1. Single line comment 
+2. Multi line comment
+3. Document comment
+------------------------------------------
+print("Sample1")
+
+#print("Sample 2")
+
+'''
+print("Sample3")
+print("Sample4")
+print("Sample5")
+'''
+print("Sample6")
+
+s='''
+This
+is
+Sample
+'''
+print(s)
+-----------------------------------
+"Niite"
+'Nitte'
+\Nitte\
+
+print("Nitte")
+print("\"Nitte\"")
+print("\'Nitte\'")
+print("\\Nitte\\")
+----------------------------
+print("\n\t\t*\n\n*\t\t\t\t*\n\n\t\t*")
+print('''
+          *
+    *         *
+          *
+''')
+-----------------------------
+https://unicode.org/emoji/charts/full-emoji-list.html
+
+print("\U0001F600")
+print("\U0001F917")
+print("\U0001F637")
+print("\U0001F389")
+--------------------------
+import sys
+ 
+sys.stdout.shell.write("Hello","COMMENT")
+sys.stdout.shell.write("Welcome","STRING")
+sys.stdout.shell.write("Sample","KEYWORD")
+----------------------
+C:\Users\user123\AppData\Local\Programs\Python\Python314\Lib\site-packages\cowsay
+
+import cowsay
+cowsay.dragon("Dragon")
+cowsay.cow("Cow")
+cowsay.kitty("Kitty")
+
+#pip install cowsay
+
+ghostbusters
+meow
+milk
+stegosaurus
+stimpy
+======================
+Python is a dynamic datatype programming language
+a=10
+print(a)
+a=100.50
+print(a)
+a='A'
+print(a)
+a="Sample"
+print(a)
+---------------------
+a=int(input("Enter a : "))
+b=int(input("Enter b : "))
+c=a
+a=b
+b=c
+print("a is : " , a)
+print("b is : " , b)
+-----------------------------
+Swapping without using third variable
+a=int(input("Enter a : ")) # 10
+b=int(input("Enter b : ")) # 5
+a=a+b # a - 15
+b=a-b # b - 10
+a=a-b # a - 5
+print("a is : " , a)
+print("b is : " , b)
+----------------------------
+Ex : Swap 3 nos without using extra variable
+a=int(input("Enter a : ")) # 10
+b=int(input("Enter b : ")) # 5
+c=int(input("Enter c : ")) # 5
+a=a+b+c
+b=a-b-c
+c=a-b-c
+a=a-b-c
+print("a is : " , a)
+print("b is : " , b)
+print("c is : " , c)
+------------------------------
+Swapping 3 nos without using any formula and extra variable:
+a=int(input("Enter a : ")) # 10
+b=int(input("Enter b : ")) # 5
+c=int(input("Enter c : ")) # 7
+a,b,c=c,a,b
+print("a is : " , a)
+print("b is : " , b)
+print("c is : " , c)
+-------------------------------
+int a; // declaration
+a=10; // assigning
+int a=10; // initialization
+c=a+b; // processing
+jumping / skipping statements:
+break , continue, goto , return
+--------------------------------
+ASCII - American standard code for oinformation interchange
+
+A - 65
+a - 97
+
+Total - 256
+0 - null
+1 - 31 - Non printable characters (Shift , ctrl, Alt ,capslock ...)
+32- space
+65-90 - Capital letter
+97-122 - small letters
+48-57 - numeric
+From 128 - Extended ascii value
+Remaining - symbols
+----------------------------------
+ch=input("Enter a character :")
+print("Ascii code is : " , ord(ch))
+
+Python supports Unicode characters
+More than 65533
+
+for i in range(3200,3328):
+    print(chr(i), end=" ")
+------------------------------------
+import calendar
+yy=int(input("Enter Year : "))
+mm=int(input("Enter Month : "))
+print(calendar.month(yy,mm))
+
+# optimized code
+print(calendar.month(int(input("Enter Year : ")),
+                     int(input("Enter Month : "))))
+----------------------------
+import calendar
+yy=int(input("Enter Year : "))
+for i in range(1,13):
+    print(calendar.month(yy,i))
+ 
+------------------------------------------
+In idle - predefined function color is pink
+help is one of the predefined function
+
+#help("topics")
+#help("NUMBERS")
+help(print)
+help("random")
+------------------------------------------
+import random
+print(random.randint(1,101))
+---------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    for(int i=1;i<=5;i++)
+     printf("%d\n",( rand() % 9000) + 1000);
+  return 0;
+}
+---------------------------------------------
+Lucky Number game - Exercise
+
+Give input - Name (only once)
+Enter Your lucky number from 1 to 10 , if the random number and lucky number matched print "Hi your name ... You win !!! " and end the game, otherwise try again .
+
+Rules : Have to attempt only 3 times.
+Otherwise print better luck next time
+---------------------------------------------
+import random
+print(random.randint(1000,10000))
+--------------------------------------------
+import winsound
+winsound.Beep(2500,5000)
+------------------------------------
+import pywhatkit
+
+#pywhatkit.playonyt(input("Enter Title : "))
+#pywhatkit.search(input("Enter Title : "))
+pywhatkit.info(input("Enter Title : "))
+
+print("Done")
+
+
+#pip install pywhatkit
+--------------------------------------
+for i  in range(33,128):
+    print(chr(i) , end = " ")
+---------------------------
+Ex :
+Test case 1:
+Give input : Q
+Output : Capital Letter
+
+Test case 2:
+Give input : q
+Output : Small Letter
+
+Test case 3:
+Give input : 7
+Output : Number
+
+Test case 4:
+Give input : $
+Output : Symbol
+
+Solution:
+ch=input("Enter value : ")
+a=ord(ch)
+
+if a>=65 and a<=90:
+    print("Capital Letter")
+elif a>=97 and a<=122:
+    print("Small Letter")
+elif a>=47 and a<=58:
+    print("Numbers")
+elif a>=33 and a<=47 or a>=58 and a<=64 or a>=91
+            and a<=96 or a>=123 and a<=126:
+    print("Symbols")
+
+--------------------------
+a=int(input("enter a value"))
+b=int(input("enter b value"))
+c=int(input("enter c value"))
+
+print("A is greater" if(a>b)and(a>c) else "B is greater " if(b>a and b>c) else "C is greater")
+=========================================
+codedpad.com
+nitte1
+=========================================
+_charannaik_
+
+session-_charannaik_
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
