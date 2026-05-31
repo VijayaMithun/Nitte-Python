@@ -1,0 +1,208 @@
+s=input("Enter String : ")
+
+for c in s:
+    print(c)
+
+'''
+The default datatype of input is String
+'''
+------------------------------------
+s=input("Enter String : ")  # sample 
+v=nv=d=sy=0 # multiple declaration
+for c in s:
+    if c.lower() in 'aeiou':
+        v=v+1
+    elif c.isalpha():
+        nv=nv+1
+    elif c.isdigit():
+        d=d+1
+    else:
+        sy=sy+1
+print("Vowels : " , v)
+print("Consonants : " , nv)
+print("Digits : " , d)
+print("Special : " , sy)
+'''
+The default datatype of input is String
+'''
+--------------------------------------------------------
+'''
+s=input("Enter String : ")
+
+print(s[0])
+print(s[-1])
+'''
+a=int(input("Enter a Negative Number : "))
+
+print("Original Number : ", a)
+print("Absolute Number : ", abs(a))
+----------------------------------------------------------------
+Exercise : Find the difference of Ascii number from the first and last character
+Solution:
+ 
+s=input("Enter String : ")
+
+print(abs(ord(s[0]) - ord(s[-1])))
+----------------------------------------------------------------
+password=input("Enter Password : ")
+u=False
+for c in password:
+    if c.isupper():
+        u=True
+if u:
+    print("Strong Password")
+else:
+    print ("Weak Password")
+-------------------------------------------------------
+Exercise:
+In the above code check a password contains numbers and small letter as well.
+password=input("Enter Password : ")
+u=l=d=False
+for c in password:
+    if c.isupper():
+        u=True
+    elif c.islower():
+        l=True
+    if c.isdigit():
+        d=True
+if u and l and d:
+    print("Strong Password")
+else:
+    print ("Weak Password")
+========================================
+s=input("Enter String : ")
+idx=int(input("Enter Index : "))
+res=""
+for i in range(len(s)):
+    if i==idx:
+        res=res+s[i].upper()
+    else:
+        res=res+s[i].lower()
+print(res)
+Test Case:  
+Input : nitte
+3
+Output : nitTe
+=============================
+Ex: Convert alternate characters as Capital from given string
+
+s=input("Enter String : ")
+res=""
+for i in range(len(s)):
+    if i%2==0:
+        res=res+s[i].upper()
+    else:
+        res=res+s[i].lower()
+print(res)
+----------------------------------------------------------------------------------    
+s=input("Enter String : ") # test
+mcount=0
+mchar=""
+for ch in s:
+    count=0
+    for c in s:
+        print("ch : " , ch ," - c : " , c)
+        if ch==c:
+            count+=1
+
+
+print(count)
+-------------------------------------------------
+Find maximum frequency character and count    
+s=input("Enter String : ") # test
+mcount=0
+mchar=""
+for ch in s:
+    count=0
+    for c in s:
+        #print("ch : " , ch ," - c : " , c)
+        if ch==c:
+            count+=1
+            if count>=mcount:
+                mcount=count
+                mchar=ch
+
+print("Max Freq : " , mcount)
+print("Max Freq Char : ", mchar)
+-------------------------------------------------------------
+s=input("Enter String : ") # LMNOPRST
+
+for i in range(len(s)-1):
+    if ord(s[i+1]) - ord(s[i]) > 1:
+        print("Missing character : " , chr(ord(s[i]) + 1))
+        break
+-------------------------------------------------------------
+name=input("Enter Name : ")
+mobile = input("Enter Mobile :")
+
+res=name[:3] + mobile[-4:]
+print(res) 
+----------------------------------------------------------------             
+Ex: need user name like below
+Test case:
+input:
+sample
+1234567890
+output:
+samPLE7890
+
+res=name[:3] + name[3:].upper() +mobile[-4:]
+----------------------------------------------------------------             
+s=input("Enter Name : ")
+count=0
+for ch in s:
+    if ord(ch) > 10000:
+        count+=1
+    
+print(count) 
+
+Test case:
+input: 
+Test😀sample🤣hello😇
+output:
+3
+--------------------------------------------
+s=input("Enter Sentence : ")
+s=s.replace(" ","").lower()
+
+if s==s[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+----------------------------------------------
+Optimized code:
+s=input("Enter Sentence : ")
+ 
+print("Palindrome" if s.replace(" ","").lower()==s[::-1].replace(" ","").lower() else "Not Palindrome")
+----------------------------------------------
+import pyqrcode 
+from pyqrcode import QRCode
+s=input("Enter String : ") 
+url=pyqrcode.create(s)
+url.svg("myqr.svg",scale=8) 
+
+#Optimized Code:
+import pyqrcode 
+from pyqrcode import QRCode
+
+print("Done", pyqrcode.create(input("Enter String : "))
+      .svg("myqr1.svg",scale=8) )
+
+
+
+#pip install pyqrcode
+-------------------------------------------
+-----------------------------------------------
+name=input("Enter Name : ")
+no=int(input("Enter No : "))
+
+print((name + " ")*no)
+---------------------------------------------
+codedpad.com
+nitte2
+---------------------------------------------
+
+
+
+ 
+
