@@ -1,0 +1,342 @@
+Python Special Datatypes:
+1. List 2. Dict 3. String 4. Set 5. Tuple
+
+Arrays Vs List
+1. Arrays are fixed
+2. Can store same datatype
+
+List
+1. Sizes are dynamic
+2. Can store different datatype
+----------------------------------
+List is a predefined class.
+List contains methods and function
+help(list)
+--------------------------------
+Function Vs Method
+
+Out of class - Function
+Inside class - method
+-------------------------------
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Student " + str(i+1) + ":"))
+print(Li)
+
+for i in range(len(Li)):
+    Li[i]=Li[i] + " - " + input("Enter Dept of " + Li[i] + " : ")
+print(Li)
+
+
+na=input("Enter name to search" )
+if na in Li:
+    print("%s is present "%na)
+else:
+    print("%s is absent"%na)
+
+print(Li[int(input("Enter Starting index")) :
+         int(input("Enter Ending index : "))])
+
+print(['{}{}{}'.format(i+1,".",name) for i,name in enumerate(Li)])
+------------------------------------------------------------------------------------
+usn= [ i for i in range(1,int(input("Enter No : " ))+1)]
+print(usn)
+print("Odd No List\n", [ "NNM"+str(no)
+        for i,no in enumerate(usn) if no%2==1])
+
+print("Even No List\n",[ "NNM23AM"+str(no)
+        for i,no in enumerate(usn) if no%2==0])
+------------------------------------------------------------------------------------
+from random import shuffle
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Student " + str(i+1) + ":"))
+print(Li)
+shuffle(Li)
+print(Li)
+--------------------------------------------------------------------
+from collections import Counter
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Student " + str(i+1) + ":"))
+print(Li) 
+newLi=[]
+for i in range(no):
+    newLi.append(input("Enter Student " + str(i+1) + ":"))
+print(newLi)
+print(Counter(Li)-Counter(newLi))
+------------------------------------------------------------
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Student " + str(i+1) + ":"))
+print("Original List : " ,Li)
+Li.sort()
+print("Ascending Order : " ,Li)
+print("Reverse : " , sorted(Li,reverse=True))
+--------------------------------------------------------------------
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Student " + str(i+1) + ":"))
+print("Original List : " ,Li)
+print("String Format", " ".join(map(str,Li)))
+---------------------------------------------------------------------
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append([input("Enter Name " + str(i+1) + ":") ,
+                     input("Enter Dept " + str(i+1) + ":") ,
+                    int(input("Enter Salary " + str(i+1) + ":")) ])
+print("Original List : " ,Li)
+d=input("Enter dept to give Incentive : ")
+inc=int(input("Enter incentive Amt:"))
+for i,(na,de,sa) in enumerate(Li):
+    if de==d:
+        Li[i][2]+=inc
+print(Li)
+-------------------------------------------------------
+no = int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append([input("Enter Name " + str(i+1) + ":") ,
+                     input("Enter Dept " + str(i+1) + ":") ,
+                    int(input("Enter Salary " + str(i+1) + ":")) ])
+print("Original List : " ,Li)
+print(Li[int(input("Enter row:"))-1])
+print(Li[int(input("Enter row:"))-1][int(input("Enter col:"))-1])
+col=int(input("Enter col:"))
+print( [row[col-1] for row in Li])
+---------------------------------------------------------
+# Counter function to compare two List elements
+from collections import Counter
+
+n = int(input("Enter Number of Employee to Process: "))
+namelist=[]
+for i in range(n):
+    Li = input("Enter Name " + str(i+1)+ " : ")
+    namelist.append(Li)
+
+print("Name List are : " , namelist)
+
+PreList=[]
+CurrList=[]
+
+for i in range(0,len(namelist)):
+    print()
+    name=namelist[i]
+
+    newvar=input("Enter Previous month Salary to " + str(name)+ " : ")
+    x=[name,newvar]
+    PreList.append(x)
+    
+    newvar=input("Enter Current month Salary to " + str(name) + " : ")
+    x=[name,newvar]
+    CurrList.append(x)
+ 
+
+print("\nEmployee Status Report:")
+print("\nEmployee Name Previous Salary List:" ,PreList)
+print("\nEmployee Name Current Salary List:" ,CurrList)
+
+print()
+
+for i in range(n):
+    print("Same Salary to " PreList[i][0], " ? ", Counter(PreList[i]) == Counter(CurrList[i]))
+-------------------------------------------
+codedpad.com
+june3
+-------------------------------------------
+
+
+
+
+
+
+
+no = int(input("Enter No : "))
+Li=[] # outer List
+for i in range(no):
+    print()
+    Li.append([]) # inner List
+    for j in range(int(input("Enter Count " + str(i+1) + ":"))):
+        Li[i].append(int(input("Enter Salary " + str(j+1) + ":")))
+        
+print(Li) 
+print("Maximum Salary : " , max(Li,key=sum))
+print("Minimum Salary : " , min(Li,key=sum))
+print("Max Count Salary : " , max(Li,key=len))
+------------------------------------------------------------
+from gtts import gTTS
+import os
+ 
+gTTS(text=input("Enter Names :"),lang='en',slow=False).save("Test.mp3")
+os.system("mpg321 Test.mp3")
+print("Done")
+
+#pip install gtts
+------------------------------------------
+from itertools import groupby
+from operator import itemgetter
+no=int(input("Enter No : "))
+Li=[]
+for i in range(no):
+    Li.append(input("Enter Name : "))
+print(Li,end=" ")
+
+for let,na in groupby(sorted(Li),key=itemgetter(0)):
+    print("\n",let)
+    for n in na:
+        print(n)
+-----------------------------------------------
+# Find second Largest element
+Li=[30,10,40,20,5,35,20]
+uni=list(set(Li))
+uni.sort()
+print("Second Largest : " ,uni[-2])
+
+#optimized code
+print("Second Largest : " , sorted(set(Li))[-2])
+-------------------------------------------
+# Find duplicate element
+Li=[3,2,1,2,3,1,4,2,5,6]
+dup=[]
+
+for i in Li:
+    #print(i , " - " , Li.count(i))
+    if Li.count(i)>1 and i not in dup:
+        dup.append(i)
+print("Original Elements : " ,Li)
+print("Duplicate Elements : " ,dup)
+----------------------------------------------------
+# Rotate List left/right by one position
+Li=[10,20,30,40,50]
+
+print("Original List: " , Li)
+print("Left Rotate : " , Li[1:]+Li[:1])
+print("Right Rotate: " , Li[-1:]+Li[:-1])
+---------------------------------------------------------
+# find missing number
+Li=[1,2,3,4,5,6,7,8,10]
+ex=Li[-1]*(Li[-1]+1)//2
+act=sum(Li)
+print("Missing number : " , abs(act-ex))
+---------------------------------------------------------
+# remove duplicate values
+Li=[3,2,1,2,3,1,4,2,5,6]
+
+--------------------------------------------
+# find common element in two lists
+Li1=[1,2,3,4,5,6,7,8,10]
+Li2=[2,12,5,17,7,21,10]
+common=[]
+for i in Li1:
+    if i in Li2:
+        common.append(i)
+        
+print("Common Elements: " , common)
+----------------------------------------------
+# Reverse a list without using predefined method
+Li=[1,2,3,4,5,6,7,8,10]
+res=[]
+for i in Li:
+    res=[i] + res
+print("Reverse 1 : " , res)
+print("Reverse 2 : " , Li[::-1])
+--------------------------------------------
+# Move all zeros to end
+Li=[1,0,2,3,0,4,5,0,6,7,8]
+res=[]
+for i in Li:
+    if i != 0:
+        res.append(i)
+while len(res)<len(Li):
+    res.append(0)
+
+print("Original List : " ,Li)
+print("Zeros to end : " , res)
+--------------------------------------------
+# check whether a list is sorted or not
+Li=[10,20,30,50,40]
+s=True
+for i in range(len(Li)-1):
+    if Li[i] > Li[i+1]:
+        s=False
+        break
+print("Sorted ? " ,s)
+-----------------------------------------
+Ex: Merge two list without duplicate
+# Merge two list without duplicate
+Li1=[10,20,30,10,20]
+Li2=[10,40,30,10,40]
+print(sorted(set(Li1+Li2)))
+-------------------------------------------
+# Find maximum product pair
+
+Li1=[1,5,8,9,2,3]
+Li1.sort()
+print("Maximum Product Pair : " , Li1[-1]*Li1[-2]) 
+---------------------------------------------
+# Split list into chuks
+
+Li=[1,2,3,4,5,6,7,8,9,10,11,12]
+size=int(input("Enter Size : "))
+
+for i in range(0,len(Li),size):
+    print(Li[i:i+size])
+--------------------------------------------
+# Swap first and last elements
+
+Li=[1,2,3,4,5,6,7,8,9,10,11,12]
+print(Li)
+Li[-1],Li[0]=Li[0],Li[-1]
+print(Li)
+---------------------------------------------
+Ex:
+# Swap alternate elements
+input:
+Li=[1,2,3,4,5,6,7,8,9,10,11,12]
+
+output:
+Li=[1,11,3,9,5,7,6,8,4,10,2,12]
+--------------------------------------------
+codedpad.com
+Nitte5
+-------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
