@@ -1,0 +1,418 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+java :
+class Solution:
+public int[] twoSum(int[] ,int)
+{
+}
+
+-------------------------
+1. Two Sum
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+---------------------------
+1. Two sum
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i,j]
+------------------------------
+26. Remove Duplicates from Sorted Array
+Test case:
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        res=1
+        for i in range(1,len(nums)):
+            if nums[i] != nums[i-1]:
+                nums[res] = nums[i]
+                res+=1
+        return res
+---------------------------------------------------
+a=60
+print(bin(a))
+b=13
+print(bin(b))
+print(a&b)
+print(a|b)
+print(a^b)
+'''
+00111100 ^
+00001101
+-----------------
+00110001
+---------------
+'''
+-----------------------------------------------
+136. Single Number
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res=0
+        for num in nums:
+            res=res^num
+        return res
+
+ 
+---------------------------------------------------
+88. Merge Sorted Array
+Example 1:
+
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+
+def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        while m > 0 and n > 0:
+            if nums1[m-1] > nums2[n-1]:
+                nums1[m+n-1] = nums1[m-1]
+                m -= 1
+            else:
+                nums1[m+n-1] = nums2[n-1]
+                n -= 1
+        nums1[:n] = nums2[:n]
+----------------------------------------------------------------------
+1920. Build Array from Permutation
+
+Input: nums = [0,2,1,5,3,4]
+
+[0,1,2,4,5,3]
+Output: [0,1,2,4,5,3]
+
+class Solution:
+    def buildArray(self, nums: List[int]) -> List[int]:
+        return [nums[nums[i]] for i in range(len(nums))]
+--------------------------------------------------
+1929. Concatenation of Array
+
+Example 1:
+Input: nums = [1,2,1]
+Output: [1,2,1,1,2,1] 
+
+Example 2:
+Input: nums = [1,3,2,1]
+Output: [1,3,2,1,1,3,2,1]
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        return nums*2
+--------------------------------------------------
+1480. Running Sum of 1d Array
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [1,3,6,10]
+
+Example 2:
+Input: nums = [1,1,1,1,1]
+Output: [1,2,3,4,5]
+
+Solution:
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+
+        for i in range(1,len(nums)):
+            nums[i]= nums[i]+nums[i-1]
+        return nums
+--------------------------------------------------
+Li=[4,7,2,1,9,5]
+print(max(Li))
+--------------------------------------------------
+1431. Kids With the Greatest Number of Candies
+
+Input: candies = [2,3,5,1,3], extraCandies = 3
+Output: [true,true,true,false,true] 
+
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        m=max(candies)
+        return [ c+extraCandies >= m for c in candies]
+----------------------------------------------------------
+1470. Shuffle the Array
+
+Example 1:
+
+Input: nums = [2,5,1,3,4,7], n = 3
+output :[2,3,5,4,1,7]
+Example 2:
+
+Input: nums = [1,2,3,4,4,3,2,1], n = 4
+output: [1,4,2,3,3,2,4,1]
+
+
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        res=[]
+        for i in range(n):
+            res.append(nums[i])
+            res.append(nums[i+n])
+        return res
+-----------------------------------------------
+1672. Richest Customer Wealth
+
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        return max(sum(Li) for Li in accounts)
+        
+-------------------------------------------------- 
+1365. How Many Numbers Are Smaller Than the Current Number
+Input: nums = [8,1,2,2,3]
+Output: [4,0,1,1,3]
+
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        s=sorted(nums)
+        return [s.index(num) for num in nums]
+-------------------------------------------------- 
+1295. Find Numbers with Even Number of Digits
+
+Example 1:
+
+Input: nums = [12,345,2,6,7896]
+Output: 2
+ 
+Example 2:
+Input: nums = [555,901,482,1771]
+output: 1
+
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        c=0
+        for num in nums:
+            if len(str(num)) %2 == 0:
+                c+=1
+        return c
+------------------------------------------------------------
+27. Remove Element
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        c=0
+        for num in nums:
+            if num!=val:
+                num[c]=num
+                c=c+1
+        return c
+--------------------------------------
+13 LC questions
+--------------------------------------
+Ex: 
+1. LC 217
+2. LC 219
+3. LC 268
+-------------------------------------
+OOPS
+Object oriented programming System/Structure
+1. class 2. object 3. Encapsulation 4. abstraction 5. polymorphism 
+6. inheritance 7. dynamic binding 8. message passing
+-----------------------------------
+class supermarket:    
+    def __init__(self):
+        print("Default constructor")
+    def input(self):
+        self.no=int(input("Enter No : "))
+    def display(self):
+        for i in range(self.no):
+            print(i , end=" ")
+s=supermarket() # constructor invoked
+s.input()
+s.display()
+-----------------------------------------
+#Single inheritance:
+class Emp:
+    def empmeth(self):
+        print("From Emp class")
+
+class Manager(Emp):
+    def managermeth(self):
+        print("From Manager class")
+
+m=Manager()
+m.empmeth()
+m.managermeth()
+--------------------------------------------
+#Multi level Inheritance
+
+class Emp:
+    def empmeth(self):
+        print("From Emp class")
+
+class Manager(Emp):
+    def managermeth(self):
+        print("From Manager class")
+
+class Project(Manager):
+    def projmeth(self):
+        print("From Project class")
+m=Project()
+m.empmeth()
+m.managermeth()
+m.projmeth()
+----------------------------------
+Hierarchal Inheritance
+
+class Emp:
+    def empmeth(self):
+        print("From Emp class")
+
+class Manager(Emp):
+    def managermeth(self):
+        print("From Manager class")
+
+class Project(Emp):
+    def projmeth(self):
+        print("From Project class")
+m=Manager()
+m.empmeth()
+m.managermeth()
+m=Project()
+m.empmeth()
+m.projmeth()
+---------------------------------------
+Multiple Inheritance:
+class Emp:
+    def empmeth(self):
+        print("From Emp class")
+
+class Manager:
+    def managermeth(self):
+        print("From Manager class")
+
+class Project(Emp,Manager):
+    def projmeth(self):
+        print("From Project class")
+m=Project()
+m.empmeth()
+m.managermeth()
+m.projmeth()
+-------------------------------------
+Ex:
+Hybrid inheritance:
+Combination of Any two types of inheritance
+-------------------------------------
+Polymorphism:
+same name , but can use in diff forms.
+
+Static
+  1. function overloading
+  2. Operator overloading (Python and java doesn't support)
+Dynamic
+  1. Override
+-----------------------------
+Method Overloading
+class Sample:
+    def display(self, Name=None,Salary=None):
+        if Name== None and Salary==None:
+            print("Default method")
+        elif Name!=None and Salary==None:
+            print("Single Parameter method : " , Name)
+        elif Name!=None and Salary!=None:
+            print("Two Parameter method:" , Name , " and " , Salary)
+s=Sample()
+s.display()
+s.display("Vasavi")
+s.display("Ankitha",150000)
+------------------------------------
+Method Overload:
+
+class Sample:
+    def add(self, datatype,*no):
+        if datatype== 'int':
+            ans=0
+        elif datatype== 'float':
+            ans=0.0
+        elif datatype== 'String':
+            ans=' '
+
+        for x in no:
+            ans=ans+x
+        print(ans)
+s=Sample()
+s.add('int',10,20,30)
+s.add('float',10.50,20.20)
+s.add('String','This ' , 'is ',' Sample ','Text ')
+----------------------------
+codedpad.com
+Nitte6
+---------------------------
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+
+        
+
+
+
+
+
+
+
+       
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
