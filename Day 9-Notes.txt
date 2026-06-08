@@ -1,0 +1,141 @@
+Types of Application
+1. Windows Application
+2. Web Application
+3. Mobile Application
+In Python web app:
+1. Flask
+2. Django 
+-----------------------------
+from flask import Flask
+
+app=Flask(__name__)
+@app.route("/") #http://127.0.0.1:5000/ 
+def home():
+    return "This is Sample"
+
+@app.route("/about") #http://127.0.0.1:5000/about
+def about():
+    return "Give some info about Nitte"
+
+@app.route('/user/<name>') # http://127.0.0.1:5000/user/gayathri
+def user(name):
+    return "Hi {}!".format(name)
+
+app.run()
+#pip install flask
+--------------------------------------------
+Database Softwares:
+MySQL,Oracle, Ms Access , db2, MongoDB, PostgreSQL, Ms SQLServer, Sqlite ...
+
+Step 1: choose db sw
+Step 2: Create database
+Step 3: Create tables in database
+Step 4: Insert / delete / update/ Select records
+------------------------------------
+import sqlite3
+
+con=sqlite3.connect('employee.db')
+print("Db created")
+
+con.execute("create table emp(id integer primary key autoincrement,  name text not null, email text unique not null)")
+print("Table created")
+con.close()
+------------------------------------
+Create table templates folder and save all html files in that folder.
+db creation python file and crud operation python file should be in the same path of templates folder.
+
+Folder Structure:
+---------------------------
+templates
+      |
+      |
+      |___ index.html
+      |___ add.html
+crud.py
+employee.py 
+------------------------------------
+Ex: Create one more link named about us in index.html and that link should navigate the html file which contains of company details
+-----------------------------------
+@app.route("/savedetails", methods=["POST","GET"])
+def save():
+    try:
+        name=request.form["name"]
+        email=request.form["email"]
+        with sqlite3.connect("employee.db") as con:
+            cur=con.cursor()
+            cur.execute("insert into emp (name,email) values(?,?)", (name,email))
+            con.commit()
+    except:
+        con.rollback()
+    finally:
+        con.close()
+        return "Saved Successfully"
+
+def delete():
+    return render_template("delete.html")
+
+@app.route("/deleterecord",methods=["POST"])
+def deleterecord():
+    id=request.form["id"]
+    with sqlite3.connect("employee.db")s con:
+        try:
+            cur=con.cursor()
+            cur.execute("delete from emp where id=?",(id,) )
+            return "Record deleted successfully"
+        except:
+            return "Can't be deleted"
+app.run()
+------------------------------
+Ex:
+With menu add another Link for Login, the login page credentials : name and email. 
+if the name and email are matched need page to edit the name , based on email.
+------------------------------
+import webbrowser
+webbrowser.open(input("Enter url to open website : "))
+
+#input: google.com
+------------------------------
+import time  
+import webbrowser  
+sa =  input("Set the website alarm as H:M:S:") 
+url = input("Enter the website you want to open:") 
+aa = time.strftime("%I:%M:%S") 
+while (aa != sa): 
+	print ("The time is " + aa) 
+	aa = time.strftime("%I:%M:%S") 
+	time.sleep(1) 
+
+if (aa == sa): 
+	print ("You should see your webpage now :-)")
+	webbrowser.open(url) 
+----------------------------------
+codedpad.com
+Nitte9
+---------------------------
+
+
+
+
+
+
+   
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
