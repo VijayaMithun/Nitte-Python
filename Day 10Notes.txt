@@ -1,0 +1,306 @@
+What is Datastructure?
+Simple term - Data manipulation
+Sorting , searing , arranging data in efficient way.
+------------------------------
+Types of Ds:
+1. Linear - manipulate data in sequential vertical or horizontal order.
+2. Non Linear  - manipulate data in hierarchal order 
+------------------------------
+Array is the first Ds concept . Introduced at 1950 in fortran
+-----------------------------
+Types of Arrays:
+
+1. Single
+2. Multi
+    1. two dim
+    2. 3dim 
+------------------------
+Realtime Applications examples:
+Graph 			-	GPS , Navigation (To find shortest path)
+Social media		-	Tree (Relate friends)
+OS				-	Stack and Queue
+Java Application 	-	Stack
+Enterprise applications	- Hash
+SEO	 Ranking			- Heap
+--------------------------
+Asymptotic Analysis [Time and space calculation]
+> It measure by notation
+
+Standard Terms:
+1. Best case
+2. Average case
+3. Worst case
+------------------------
+import time
+
+s=time.time()
+print(s)
+
+for i in range(1,400):
+    print(i , end=" ")
+e=time.time()
+f=(s-e)
+print("\nFinal time" ,abs(f))
+
+This program gives different output for different persons based on the system configuration and memory. 
+
+So we have to calculate Asymptotic Analysis based on data availability.
+----------------------------------
+
+1. Best Case : 
+Definition: Minimum time taken by an algorithm
+Meaning: Input is most favorable
+Example: Element found at the first position
+Notation commonly used: Ω (Big Omega)
+
+2. Average Case
+Definition: Expected time for normal input
+Meaning: Input is neither best nor worst
+Example: Element found in the middle
+Notation commonly used: Θ (Big Theta)
+
+3. Worst Case
+Definition: Maximum time taken by an algorithm
+Meaning: Input is least favorable
+Example: Element found at last position or not found
+Notation commonly used: O (Big O)
+----------------------------------
+The most common time complexities:
+Always the input represent by n.
+
+O(1) - Constant time
+O(n) - Linear time
+O(log n) - Logrithmic
+O(n log n) - Log-Linear
+O(n pow 2) - Quadratic Order
+O(2 pow n) - Exponential
+---------------------------------- 
+# Constant time Example
+# The input size has no impact on execution time
+# Best - Average - worst are same - O(1)
+arr=[1,2,3,4,5,6,7,8,9,10]
+print(arr[4]) 
+-------------------------------
+# Linear time Example
+# The input size has no impact on execution time
+# if the List size is large , it take more time complete the execution
+
+arr=[1,2,3,4,5,6,7,8,9,10]
+
+for i in range(len(arr)):
+    print(arr[i])
+-------------------------------
+# Logarithmic time Example
+# Reduce the problem by half each time
+
+n=int(input("Enter No : "))
+c=0
+
+while n>1:
+    n=n/2
+    c+=1
+    print("Step : " , c , " - > "  , n)
+----------------------------------------
+# Log-Linear  time Example
+
+n=int(input("Enter No : "))
+
+for i in range(n): # O(n) - Time complexity
+    num=i
+    c=0
+    while num>=1:   # O(log n) - Time complexity
+        c=c+1
+        num=num/2
+        print("Step : " , c , " - > "  , num)
+----------------------------------------
+# Quadratic time Example
+
+n=int(input("Enter No : "))
+
+for i in range(n):
+    for j in range(n):
+        print(i , " - "  , j)
+
+-------------------------
+# expontial time complexity
+
+fibonacci series program using recursion
+-----------------------
+Linked List
+> It is a Linear data structure concept
+> It store data in node .
+> A Node contains data and connected reference
+
+Advantages:
+> Insertion / Deletion is faster than Array
+> Size is dynamic
+
+Disadvantage:
+> Occupy more memory than array
+> Search is slower than array
+-------------------------------
+# Node class
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# LinkedList class
+class LinkedList:
+    def __init__(self):
+        self.head = None
+ 
+Important Terms:
+----------
+nnode = Node(data) --> Create a new node with given data.
+self.head = nnode    --> Set the new node as the first node.
+cur.next = nnode	  --> Link cur node to the new node.
+cur = self.head   	  --> Start from the head of the list.
+nnode.next = self.head --> Point new node to the head (for circular or reconnecting).
+cur = cur.next	  --> Move to the next node.
+self.head = cur.next --> Update head to the node after cur.
+prev.next = cur.next --> Skip cur node by linking previous to next node.
+
+------------------------------------------------------------------------------------------
+206. Reverse Linked List
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev=None
+        curr=head
+
+        while curr:
+            temp=curr.next
+            curr.next=prev # reversing pointer
+            prev=curr
+            curr=temp
+        return prev
+------------------------------------------------
+Numpy 
+Numpy is a module / Library working with array.
+Numeric Python - Numpy
+
+Python lists are slow. 
+But Numpy process / methods 50x faster than list.
+----------------------------------------------
+import numpy as np
+# To check a list contains 0 or not
+Li=[1,2,3,4,5]
+print(np.all(np.array(Li)))
+-----------------------------------------------
+import numpy as np
+Li1=[10,20,30,40]
+Li2=[30,20,10,40]
+print(np.greater(np.array(Li1),np.array(Li2))) 
+print(np.greater_equal(np.array(Li1),np.array(Li2))) 
+print(np.less(np.array(Li1),np.array(Li2))) 
+print(np.less_equal(np.array(Li1),np.array(Li2))) 
+print(np.equal(np.array(Li1),np.array(Li2))) 
+-----------------------------------------------
+import numpy as np
+Li1=[10,20,30,40,50]
+x=np.array(Li1)
+print("List memory size : " , x.size*x.itemsize) 
+----------------------------------------------
+import numpy as np
+print(np.ones(int(input("Enter  No : "))*
+        int(input("Enter Multiply No : "))))
+--------------------------------------------------
+import numpy as np
+print(np.arange(int(input("Enter Starting No : ")),
+        int(input("Enter Ending No : "))+1))
+---------------------------------------------------
+import numpy as np
+print(np.identity(int(input("Enter no for 2d Matrix : "))))
+--------------------------------------------------
+import numpy as np
+print(np.random.normal(1,50,4)) # default type is float
+print(abs(np.random.normal(1,50,4).astype(int)))
+------------------------------------------------
+import numpy as np
+
+print(np.arange(int(input("Enter Starting No : ")),
+        int(input("Enter Ending No : "))+1).reshape(3,4))
+------------------------------------------------
+import numpy as np
+Li=[10,20,30,40]
+x=np.array(Li)
+y=np.random.randint(int(input("Enter Starting No : ")),
+        int(input("Enter Ending No : "))+1,len(Li))
+print("Random Multiple : " , x*y)
+-------------------------------------------------
+import numpy as np
+print(np.eye(int(input("Enter No : "))))
+print(np.diag([1,2,3,4,5]))
+print(np.diag(np.arange(1,25,3)))
+----------------------------------------------------
+import numpy as np
+x=np.diag(np.arange(1,25,3))
+print(x,"\n")
+x=x.astype(object)
+x[::2,1::2]='X'
+x[1::2,::2]='Y'
+print(x)
+--------------------------------------
+import numpy as np
+x=np.array([[1,2,3],[4,5,6]])
+print("Original array : " , x)
+print("Sum of all : " , np.sum(x))
+print("Sum of cols : " , np.sum(x,axis=0))
+print("Sum of rows : " , np.sum(x,axis=1))
+-------------------------------------------
+codedpad.com
+Nitte10
+-------------------------------------------
+LC 24. Swap Nodes in Pairs
+LC 61. Rotate List
+LC 19. Remove Nth Node From End of List
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
