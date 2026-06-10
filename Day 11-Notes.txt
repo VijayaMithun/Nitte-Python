@@ -1,0 +1,285 @@
+import matplotlib.pyplot as plt
+
+x=[1,2,3]
+y=[10,20,30]
+
+plt.plot(x,y)
+plt.show()
+print("Graph Created")
+-------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+
+x1=[1,2,3]
+y1=[10,20,30]
+
+x2=[1,2,3]
+y2=[30,20,10]
+
+plt.plot(x1,y1)
+plt.plot(x2,y2)  
+plt.show()
+print("Graph Created")
+----------------------------------------------------------------
+import matplotlib.pyplot as plt
+
+x1=[1,2,3,4]
+y1=[5,6,7,8]
+
+plt.scatter(x1,y1,s=500)  
+plt.show()
+print("Graph Created")
+---------------------------------------------------
+import matplotlib.pyplot as plt
+
+plt.bar([0.25,1.25,2.25,3.25,4.25],[50,40,70,80,90],
+         label="BMW",color='g' ,width=.5)
+plt.bar([0.15,4.5,2.5,5.5,1.0],[70,80,90,40,60],
+         label="Audi", color='r' , width=0.25)
+plt.title("Information")
+plt.xlabel('Days')
+plt.ylabel('Distance (Kms)')
+plt.legend()
+plt.show()
+print("Graph Created")
+--------------------------------------------------
+import matplotlib.pyplot as plt
+import numpy as np
+x1=np.linspace(0.0,5.0)
+x2=np.linspace(0.0,2.0)
+y1=np.cos(2*np.pi*x1)*np.exp(-x1)
+y2=np.cos(2*np.pi*x1)
+fig,(ax1,ax2) = plt.subplots(2,1)
+fig.suptitle("Two Sub plots")
+ax1.plot(x1,y1,'o-')
+ax2.plot(x2,y2,'x')
+ax1.set_ylabel('First Plot')
+ax2.set_xlabel('Second Plot')
+ax2.set_ylabel('Y')
+plt.title("Information")
+plt.show()
+print("Graph Created")
+-----------------------------------------------
+import matplotlib.pyplot as plt
+import numpy as np
+np.random.seed(15123456)
+z=np.random.rand(6,10)
+x=np.arange(-0.5,10,1)
+y=np.arange(4.5,11,1)
+fix,ax=plt.subplots()
+ax.pcolormesh(x,y,z)
+plt.title("Color Mesh")
+plt.show()
+print("Graph Created")
+-------------------------------------
+import matplotlib.pyplot as plt
+import matplotlib
+import numpy as np
+
+mu=100
+sigma=15
+fig,ax=plt.subplots()
+n,bins,patches=ax.hist(mu+sigma*np.random.randn(500),50,density=True)
+ax.plot(bins,((1/(np.sqrt(2*np.pi)*sigma))*np.exp(-0.5*(1/sigma*
+                                             (bins-mu))**2)),'--')
+ax.set_xlabel('Smarts').
+ax.set_ylabel('Probablity Density')
+ax.set_title("Histogram of IQ")
+fig.tight_layout()
+plt.show()
+print("Graph Created")
+-------------------------------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111, projection='3d')
+X, Y = np.meshgrid(np.arange(-4, 4, 0.25), np.arange(-4, 4, 0.25))
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+ax.plot_surface(X, Y, Z, cmap='hot')
+ax.contourf(X, Y, Z, zdir='z', offset=-2, cmap='hot')
+ax.set_zlim(-2, 2)
+
+def rotate(frame):
+    ax.view_init(elev=20, azim=frame)
+    return ax,
+anim = FuncAnimation(fig, rotate, frames=360, interval=50,
+                     blit=False, repeat=True)
+
+plt.show()
+------------------------------
+codedpad.com
+plot
+-----------------------------
+import matplotlib
+matplotlib.use('Agg')   # Required for Flask
+
+from flask import Flask
+import matplotlib.pyplot as plt
+import io
+import base64
+
+app = Flask(__name__)
+
+@app.route('/')
+def plot():
+    x = [1, 2, 3, 4, 5]
+    y = [10, 20, 15, 25, 30]
+    plt.figure(figsize=(6, 4))
+    plt.plot(x, y, marker='o')
+    plt.title("Simple Line Graph")
+    plt.xlabel("X Axis")
+    plt.ylabel("Y Axis")
+
+    img = io.BytesIO()
+    plt.savefig(img, format='png')
+    plt.close()
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+
+    return f'''<html><body>
+        <h2>Matplotlib Graph in Flaskkk</h2>
+        <img src="data:image/png;base64,{plot_url}">
+    </body></html> '''
+app.run()
+---------------------------------------
+2215. Find the Difference of Two Arrays
+
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        s1=set(nums1)
+        s2=set(nums2)
+        return [list(s1-s2), list(s2-s1)]
+------------------------------------------
+1732. Find the Highest Altitude
+
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        highest =0
+        alt = 0
+        for g in gain:
+            alt=alt+g
+            highest=max(alt, highest)
+        return highest
+-----------------------------------------------
+2574. Left and Right Sum Differences
+
+tot=sum(nums)
+left=0
+res=[]
+print(nums , "=" ,  tot)
+for n in nums:
+    tot-=n
+    res.append(abs(left - tot))
+    left+=n
+    #print(tot,",", n, "," ,left , res) 
+return (res)
+-----------------------------------------------
+1991. Find the Middle Index in Array
+
+nums=[10,4,8,3]
+
+tot=sum(nums)
+left=0
+res=[]
+print(nums , "=" ,  tot)
+for i,n in enumerate(nums):
+    if left == tot-left-n:
+        return i
+    left+=n
+return -1
+--------------------------------------------
+Two Pointers:
+
+Have two use two variables:
+1. both variable can increase
+2. both variable can decrease
+3. One variable may increase and another one may decrease
+4. One may navigate from left and another variable navigate from right
+------------------------------------------
+344. reverse String
+
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        left , right = 0 , len(s)-1
+        while left<right:
+            s[left],s[right]=s[right],s[left]
+            left+=1
+            right-=1
+------------------------------------------
+167 . Two Sum II
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left,right=0,len(numbers)-1
+        while left<right:
+            total=numbers[left] + numbers[right]
+            if total == target:
+                return [left+1,right+1]
+            elif total<target:
+                left+=1
+            else:
+                right-=1
+------------------------------------------
+392. Is Subsequence
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i=0
+        for ch in t:
+            if i<len(s) and s[i] == ch:
+                i+=1
+        return i==len(s)
+------------------------------------------
+53. Maximum Subarray
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        cur=ma=nums[0]
+        for num in nums[1:]:
+            cur=max(num,cur+num)
+            ma=max(ma,cur)
+        return ma
+-----------------------------------------
+189. Rotate Array
+
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        k%=len(nums)
+        nums[:]= nums[-k:] + nums[:-k]
+----------------------------------------
+nums=[10,4,8,3]
+
+tot=sum(nums)
+left=0
+res=[]
+print(nums , "=" ,  tot)
+for i,n in enumerate(nums):
+    if left == tot-left-n:
+        return i
+    left+=n
+return -1
+----------------------------------------
+118. Pascal's Triangle
+
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        c=[1]
+        for i in range(rowIndex):
+            c= [1] + [c[j] + c[j+1] for j in range(len(c)-1)]+[1]
+        return c
+# c=c*(i+j)+1//j
+ --------------------------------------------------
+codedpad.com
+Nitte11
+---------------------------------------------------
+
+        
+        
+
+
+
+
+
+
+
+
